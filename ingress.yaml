@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: toolbox
+  namespace: toolbox
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.global-static-ip-name: toolbox
+    networking.gke.io/managed-certificates: toolbox
+    networking.gke.io/v1beta1.FrontendConfig: toolbox
+spec:
+  rules:
+  - host: toolbox.erdongli.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: toolbox
+              port:
+                number: 8080

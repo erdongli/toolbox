@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: toolbox
+  namespace: toolbox
+spec:
+  domains:
+    - toolbox.erdongli.com
